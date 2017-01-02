@@ -9,10 +9,10 @@
 <?import javafx.scene.image.Image?>
 <VBox fx:id="container" stylesheets="/css/main.css" xmlns="http://javafx.com/javafx/8.0.111"
       xmlns:fx="http://javafx.com/fxml/1">
-    <Label>
+    <Label styleClass="title">
         Pomodoro
     </Label>
-    <Label>
+    <Label styleClass="time">
         00:00
     </Label>
     <HBox styleClass="buttons">
