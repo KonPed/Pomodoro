@@ -1,19 +1,22 @@
 * {
     -fx-fill: #fff;
+
 }
 
 #container {
+    -fx-font-family: "Varela Round";
     -fx-alignment: top-center;
     -fx-spacing: 20px;
     -fx-padding: 30px;
     -fx-background-color: #35B55C;
 }
 
-.title {
+#title {
     -fx-font-size: 40px;
+    -fx-font-family: "Ewert";
 }
 
-.time {
+#time {
     -fx-font-size: 60px;
     -fx-text-fill: #fff;
     -fx-alignment: center;
