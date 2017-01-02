@@ -56,7 +56,7 @@
             </SVGPath>
         </StackPane>
     </HBox>
-    <TextArea maxWidth="320" prefRowCount="4" promptText="What are you doing?" />
+    <TextArea fx:id="message" maxWidth="320" prefRowCount="4" promptText="What are you doing?" />
     <ImageView>
         <Image url="/images/pomodoro.png" />
     </ImageView>
