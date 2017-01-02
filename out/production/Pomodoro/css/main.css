@@ -1,0 +1,20 @@
+#container {
+    -fx-alignment: top-center;
+}
+
+.svg {
+    -fx-fill: red;
+}
+
+.buttons {
+    -fx-alignment: center;
+}
+
+.button {
+    -fx-pref-width: 100px;
+    -fx-padding: 10px 20px;
+}
+
+.pause {
+    visibility: hidden;
+}
