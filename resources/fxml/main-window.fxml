@@ -57,4 +57,5 @@
             </SVGPath>
         </StackPane>
     </HBox>
+    <TextArea promptText="What are you doing?" maxWidth="320" prefRowCount="2"/>
 </VBox>

@@ -1,5 +1,7 @@
 #container {
     -fx-alignment: top-center;
+    -fx-spacing: 20px;
+    -fx-padding: 30px;
 }
 
 .svg {
