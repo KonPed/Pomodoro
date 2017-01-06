@@ -41,3 +41,11 @@
 .pause {
     visibility: hidden;
 }
+
+.focus {
+    -fx-background-color: #2d3339;
+}
+
+.break {
+    -fx-background-color: #3f8abf;
+}
