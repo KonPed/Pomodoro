@@ -8,6 +8,7 @@
 <?import javafx.scene.shape.SVGPath?>
 <VBox fx:id="container" stylesheets="/css/main.css" xmlns="http://javafx.com/javafx/8.0.111"
       xmlns:fx="http://javafx.com/fxml/1" fx:controller="pomodoro.controllers.home">
+    <Button fx:id="DEBUG" onAction="#init">DEBUG</Button>
     <Label fx:id="title">
         Pomodoro
     </Label>
