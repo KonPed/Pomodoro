@@ -7,7 +7,6 @@
     -fx-alignment: top-center;
     -fx-spacing: 20px;
     -fx-padding: 30px;
-    -fx-background-color: #35B55C;
 }
 
 #title {
@@ -40,4 +39,12 @@
 
 .pause {
     visibility: hidden;
+}
+
+.focus {
+    -fx-background-color: #2d3339;
+}
+
+.break {
+    -fx-background-color: #3f8abf;
 }

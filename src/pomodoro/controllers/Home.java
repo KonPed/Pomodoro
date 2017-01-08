@@ -1,5 +1,7 @@
 package pomodoro.controllers;
 
+import javafx.beans.property.StringProperty;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
@@ -10,8 +12,9 @@ import pomodoro.model.AttemptKind;
 /**
  * Created by konstantinos on 1/8/2017.
  */
-public class home {
+public class Home {
     private Attempt currentAttempt;
+    private StringProperty timerText;
 
     @FXML
     private VBox container;
@@ -34,5 +37,9 @@ public class home {
         for (AttemptKind attemptKind : AttemptKind.values()) {
             container.getStyleClass().remove(attemptKind.toString());
         }
+    }
+
+    public void DEBUG(ActionEvent actionEvent) {
+        System.out.println("HI MOM");
     }
 }

@@ -11,7 +11,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/main-window.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Home.fxml"));
         Font.loadFont(getClass().getResource("/fonts/Ewert-Regular.ttf").toExternalForm(),10.0);
         Font.loadFont(getClass().getResource("/fonts/VarelaRound-Regular.ttf").toExternalForm(),10.0);
         primaryStage.setTitle("Pomodoro Application");
