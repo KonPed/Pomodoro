@@ -45,7 +45,7 @@
             </HBox.margin>
         </StackPane>
         <StackPane>
-            <Button>
+            <Button onAction="#handleRestart">
                 Restart
             </Button>
             <SVGPath

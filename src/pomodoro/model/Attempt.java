@@ -29,4 +29,8 @@ public class Attempt {
     public AttemptKind getKind() {
         return kind;
     }
+
+    public void tick() {
+        remainingSeconds--;
+    }
 }

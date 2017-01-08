@@ -1,11 +1,15 @@
 package pomodoro.controllers;
 
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.Timeline;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.layout.VBox;
+import javafx.util.Duration;
 import pomodoro.model.Attempt;
 import pomodoro.model.AttemptKind;
 
@@ -16,6 +20,7 @@ import pomodoro.model.AttemptKind;
 public class Home {
     private Attempt currentAttempt;
     private StringProperty timerText;
+    private Timeline timeLine;
 
     @FXML
     private VBox container;
@@ -46,11 +51,26 @@ public class Home {
     }
 
     private void prepareAttempt(AttemptKind attemptKind) {
+        // TODO: 1/8/2017 This is creating multiple timelines we need to fix this.
+        timeLine = new Timeline();
+        timeLine.setCycleCount(attemptKind.getTotalSeconds());
+        timeLine.getKeyFrames().add(new KeyFrame(Duration.seconds(1), e -> {
+            currentAttempt.tick();
+            setTimerText(currentAttempt.getRemainingSeconds());
+        }));
         clearAttemptStyles();
         currentAttempt = new Attempt(attemptKind, "");
         addAttemptStyle(attemptKind);
         title.setText(attemptKind.getDisplayName());
         setTimerText(currentAttempt.getRemainingSeconds());
+    }
+
+    public void playTimer() {
+        timeLine.play();
+    }
+
+    public void pauseTimer() {
+        timeLine.pause();
     }
 
     private void addAttemptStyle(AttemptKind attemptKind) {
@@ -64,6 +84,11 @@ public class Home {
     }
 
     public void DEBUG(ActionEvent actionEvent) {
-        System.out.println("HI MOM");
+        System.out.println("HI");
+    }
+
+    public void handleRestart(ActionEvent actionEvent) {
+        prepareAttempt(AttemptKind.FOCUS);
+        playTimer();
     }
 }
