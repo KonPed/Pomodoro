@@ -1,13 +1,14 @@
 package pomodoro.controllers;
 
+import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import javafx.util.Duration;
 import pomodoro.model.Attempt;
@@ -26,6 +27,8 @@ public class Home {
     private VBox container;
     @FXML
     private Label title;
+    @FXML
+    private TextArea message;
 
     public Home() {
         timerText = new SimpleStringProperty();
@@ -51,18 +54,33 @@ public class Home {
     }
 
     private void prepareAttempt(AttemptKind attemptKind) {
-        // TODO: 1/8/2017 This is creating multiple timelines we need to fix this.
+        reset();
         timeLine = new Timeline();
         timeLine.setCycleCount(attemptKind.getTotalSeconds());
         timeLine.getKeyFrames().add(new KeyFrame(Duration.seconds(1), e -> {
             currentAttempt.tick();
             setTimerText(currentAttempt.getRemainingSeconds());
         }));
-        clearAttemptStyles();
         currentAttempt = new Attempt(attemptKind, "");
         addAttemptStyle(attemptKind);
         title.setText(attemptKind.getDisplayName());
         setTimerText(currentAttempt.getRemainingSeconds());
+        timeLine.setOnFinished(event -> {
+            saveCurrentAttempt();
+            prepareAttempt(currentAttempt.getKind() == AttemptKind.FOCUS ? AttemptKind.BREAK : AttemptKind.FOCUS);
+        });
+    }
+
+    public void saveCurrentAttempt() {
+        currentAttempt.setMessage(message.getText());
+        currentAttempt.save();
+    }
+
+    private void reset() {
+        clearAttemptStyles();
+        if (timeLine != null && timeLine.getStatus() == Animation.Status.RUNNING) {
+            timeLine.stop();
+        }
     }
 
     public void playTimer() {
