@@ -10,10 +10,10 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
+import javafx.scene.media.AudioClip;
 import javafx.util.Duration;
 import pomodoro.model.Attempt;
 import pomodoro.model.AttemptKind;
-
 
 /**
  * Created by konstantinos on 1/8/2017.
@@ -22,6 +22,7 @@ public class Home {
     private Attempt currentAttempt;
     private StringProperty timerText;
     private Timeline timeLine;
+    private AudioClip applause;
 
     @FXML
     private VBox container;
@@ -33,6 +34,7 @@ public class Home {
     public Home() {
         timerText = new SimpleStringProperty();
         setTimerText(0);
+        applause = new AudioClip(getClass().getResource("/sounds/applause.mp3").toExternalForm());
     }
 
     public String getTimerText() {
@@ -67,6 +69,7 @@ public class Home {
         setTimerText(currentAttempt.getRemainingSeconds());
         timeLine.setOnFinished(event -> {
             saveCurrentAttempt();
+            applause.play();
             prepareAttempt(currentAttempt.getKind() == AttemptKind.FOCUS ? AttemptKind.BREAK : AttemptKind.FOCUS);
         });
     }
