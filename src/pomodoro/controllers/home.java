@@ -1,7 +1,7 @@
-package pomodoro.controllers;
+package pomodoro.controller;
 
 /**
- * Created by konstantinos on 1/6/2017.
+ * Created by konstantinos on 1/8/2017.
  */
 public class home {
 }
