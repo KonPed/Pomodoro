@@ -12,9 +12,7 @@
     <Label fx:id="title">
         Pomodoro
     </Label>
-    <Label fx:id="time">
-        00:00
-    </Label>
+    <Label fx:id="time" text="${controller.timerText}"/>
     <HBox styleClass="buttons">
         <StackPane>
             <Button styleClass="play">
