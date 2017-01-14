@@ -4,7 +4,7 @@ package pomodoro.model;
  * Created by konstantinos on 1/2/2017.
  */
 public enum AttemptKind {
-   FOCUS(5, "Focus Time"), BREAK(5, "Break Time");
+   FOCUS(25 * 60, "Focus Time"), BREAK(5 * 60, "Break Time");
 
    private int totalSeconds;
    private String displayName;

@@ -107,10 +107,6 @@ public class Home {
         }
     }
 
-    public void DEBUG(ActionEvent actionEvent) {
-        System.out.println("HI");
-    }
-
     public void handleRestart(ActionEvent actionEvent) {
         prepareAttempt(AttemptKind.FOCUS);
         playTimer();
