@@ -2,7 +2,7 @@
     -fx-fill: #fff;
 }
 
-#container {
+.styles-container {
     -fx-font-family: "Varela Round";
     -fx-alignment: top-center;
     -fx-spacing: 20px;
