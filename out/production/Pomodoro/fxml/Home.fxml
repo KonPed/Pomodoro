@@ -9,7 +9,6 @@
 <VBox fx:id="container" styleClass="styles-container" stylesheets="/css/main.css" xmlns="http://javafx.com/javafx/8.0.111"
       xmlns:fx="http://javafx.com/fxml/1" fx:controller="pomodoro.controllers.Home">
     <children>
-        <Button fx:id="DEBUG" onAction="#DEBUG">DEBUG</Button>
         <Label fx:id="title">
             Pomodoro
         </Label>
